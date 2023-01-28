@@ -1,0 +1,20 @@
+workspace(name = "example")
+
+load(
+    "@example//:repository_rules.bzl",
+    "local_archive",
+)
+
+local_archive(
+    name = "node",
+    archive = "//:third_party/node-v18.13.0-linux-x64.tar.xz",
+    strip_prefix = "node-v18.13.0-linux-x64",
+    build_file = "//:third_party/node.BUILD",
+)
+
+local_archive(
+    name = "pyright",
+    archive = "//:third_party/pyright-1.1.291.tgz",
+    build_file = "//:third_party/pyright.BUILD",
+     strip_prefix = "package",
+)
